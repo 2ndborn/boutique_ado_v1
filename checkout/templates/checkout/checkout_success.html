@@ -1,12 +1,19 @@
-{% extends "base.html" %} {% load static %} {% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
-{% endblock %} {% block page_header %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}"/>
+{% endblock %}
+
+{% block page_header %}
 <div class="container header-container">
   <div class="row">
     <div class="col"></div>
   </div>
 </div>
-{% endblock %} {% block content %}
+{% endblock %}
+
+{% block content %}
 <div class="overlay"></div>
 <div class="container">
   <div class="row">
@@ -29,6 +36,7 @@
             <small class="text-muted">Order Info: </small>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 col-md-8">
             <p class="mb-0 text-black font-weight-bold">Order Number</p>
@@ -82,6 +90,7 @@
             <p class="mb-0">{{ order.full_name }}</p>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 col-md-8">
             <p class="mb-0 text-black font-weight-bold">Address 1</p>
@@ -100,7 +109,9 @@
             <p class="mb-0">{{ order.street_address2 }}</p>
           </div>
         </div>
-        {% endif %} {% if order.county %}
+        {% endif %}
+        
+        {% if order.county %}
         <div class="row">
           <div class="col-12 col-md-8">
             <p class="mb-0 text-black font-weight-bold">County</p>
@@ -139,6 +150,7 @@
             <p class="mb-0">{{ order.country }}</p>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 col-md-8">
             <p class="mb-0 text-black font-weight-bold">Phone Number</p>
@@ -162,6 +174,7 @@
             <p class="mb-0">{{ order.order_total }}</p>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 col-md-8">
             <p class="mb-0 text-black font-weight-bold">Delivery</p>
@@ -170,6 +183,7 @@
             <p class="mb-0">{{ order.delivery_cost }}</p>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 col-md-8">
             <p class="mb-0 text-black font-weight-bold">Grand Total</p>
@@ -181,6 +195,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-12 col-lg-7 text-right">
       <a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
