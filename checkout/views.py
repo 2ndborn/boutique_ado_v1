@@ -110,8 +110,8 @@ def checkout(request):
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
-                Urofile = serProfile.objects.get(user=request.user)
-                porder_form = OrderForm(initial={
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
